@@ -12,6 +12,14 @@ class TimeTools:
         return datetime.fromtimestamp(timestamp, tz).strftime(fmt)
 
     @staticmethod
-    def timeStamp(dateString, tz=None, fmt="%Y-%m-%d %H:%M:%S"):
+    def timeStamp(dateString, tz=None):
+        num = dateString.count(":")
+        fmt = "%Y-%m-%d %H:%M:%S"
+        if num == 0:
+            fmt = "%Y-%m-%d"
+        elif num == 1:
+            fmt = "%Y-%m-%d %H:%M"
+        elif num == 2:
+            fmt = "%Y-%m-%d %H:%M:%S"
         utc_dt = datetime.strptime(dateString, fmt).replace(tzinfo=tz)
         return int(utc_dt.timestamp())
