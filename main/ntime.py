@@ -29,9 +29,9 @@ class NTime:
                                      ''))
 
             return items
-        except ValueError:
+        except ValueError as e:
             items.append(
-                Item.create_item('Invalid input', 'Please enter a valid Unix timestamp',
+                Item.create_item('Invalid input', 'Please enter a valid Unix timestamp' + str(e),
                                  {'type': 'default', 'path': 'icon.png'},
                                  ''))
             return items

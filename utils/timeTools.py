@@ -1,5 +1,5 @@
 import math
-from datetime import timezone, datetime
+from datetime import datetime
 
 
 class TimeTools:
@@ -21,5 +21,5 @@ class TimeTools:
             fmt = "%Y-%m-%d %H:%M"
         elif num == 2:
             fmt = "%Y-%m-%d %H:%M:%S"
-        utc_dt = datetime.strptime(dateString, fmt).replace(tzinfo=tz)
+        utc_dt = datetime.strptime(dateString.replace('\\', ''), fmt).replace(tzinfo=tz)
         return int(utc_dt.timestamp())
