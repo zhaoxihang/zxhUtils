@@ -8,6 +8,9 @@ search_query = sys.argv[1]
 class Script:
     fun = ""
 
+    def __init__(self, str_fun):
+        self.fun = str_fun
+
     @staticmethod
     def ntime(query):
         try:
@@ -19,8 +22,7 @@ class Script:
 
 if __name__ == "__main__":
     funStr, param = search_query.lstrip().split(' ', 1)
-    controller = Script()
-    controller.fun = funStr
+    controller = Script(funStr)
     result = {'items': getattr(controller, controller.fun)(param)}
     json.dump(result, sys.stdout)
     sys.stdout.flush()

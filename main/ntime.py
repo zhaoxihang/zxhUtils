@@ -9,7 +9,7 @@ class NTime:
         items = []
         try:
             if isinstance(query, int):
-                utcDate = TimeTools.formatTimestamp(query, fmt="%Y-%m-%d", tz=timezone.utc)
+                utcDate = TimeTools.formatTimestamp(query, fmt="%Y-%m-%d %H:%M:%S", tz=timezone.utc)
                 items.append(Item.create_item(utcDate, 'UTC date', {'type': 'default', 'path': 'icon.png'},
                                               utcDate))
                 localDate = TimeTools.formatTimestamp(query)
